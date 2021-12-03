@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{43A84E96-6B51-489F-B9F8-44058CD800B9}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.22000.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.22000.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtInstall>6.2.0_msvc2019_64</QtInstall>
+    <QtModules>core;gui;widgets;network</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+    <QtDeploy>true</QtDeploy>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>6.2.0_msvc2019_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir);.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link />
+    <Link>
+      <AdditionalLibraryDirectories>$(ProjectDir)openssl;$(Qt_LIBPATH_);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Link>
+      <CreateHotPatchableImage>Enabled</CreateHotPatchableImage>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AddClass.cpp" />
+    <ClCompile Include="CJsonObject\cJSON.c" />
+    <ClCompile Include="CJsonObject\CJsonObject.cpp" />
+    <ClCompile Include="getConfig.cpp" />
+    <ClCompile Include="getUser.cpp" />
+    <ClCompile Include="google\protobuf\any.cc" />
+    <ClCompile Include="google\protobuf\any.pb.cc" />
+    <ClCompile Include="google\protobuf\any_lite.cc" />
+    <ClCompile Include="google\protobuf\api.pb.cc" />
+    <ClCompile Include="google\protobuf\arena.cc" />
+    <ClCompile Include="google\protobuf\arenastring.cc" />
+    <ClCompile Include="google\protobuf\descriptor.cc" />
+    <ClCompile Include="google\protobuf\descriptor.pb.cc" />
+    <ClCompile Include="google\protobuf\descriptor_database.cc" />
+    <ClCompile Include="google\protobuf\duration.pb.cc" />
+    <ClCompile Include="google\protobuf\dynamic_message.cc" />
+    <ClCompile Include="google\protobuf\empty.pb.cc" />
+    <ClCompile Include="google\protobuf\extension_set.cc" />
+    <ClCompile Include="google\protobuf\extension_set_heavy.cc" />
+    <ClCompile Include="google\protobuf\field_access_listener.cc" />
+    <ClCompile Include="google\protobuf\field_mask.pb.cc" />
+    <ClCompile Include="google\protobuf\generated_enum_util.cc" />
+    <ClCompile Include="google\protobuf\generated_message_reflection.cc" />
+    <ClCompile Include="google\protobuf\generated_message_table_driven.cc" />
+    <ClCompile Include="google\protobuf\generated_message_table_driven_lite.cc" />
+    <ClCompile Include="google\protobuf\generated_message_util.cc" />
+    <ClCompile Include="google\protobuf\implicit_weak_message.cc" />
+    <ClCompile Include="google\protobuf\io\coded_stream.cc" />
+    <ClCompile Include="google\protobuf\io\gzip_stream.cc" />
+    <ClCompile Include="google\protobuf\io\io_win32.cc" />
+    <ClCompile Include="google\protobuf\io\printer.cc" />
+    <ClCompile Include="google\protobuf\io\strtod.cc" />
+    <ClCompile Include="google\protobuf\io\tokenizer.cc" />
+    <ClCompile Include="google\protobuf\io\zero_copy_stream.cc" />
+    <ClCompile Include="google\protobuf\io\zero_copy_stream_impl.cc" />
+    <ClCompile Include="google\protobuf\io\zero_copy_stream_impl_lite.cc" />
+    <ClCompile Include="google\protobuf\map.cc" />
+    <ClCompile Include="google\protobuf\map_field.cc" />
+    <ClCompile Include="google\protobuf\message.cc" />
+    <ClCompile Include="google\protobuf\message_lite.cc" />
+    <ClCompile Include="google\protobuf\parse_context.cc" />
+    <ClCompile Include="google\protobuf\reflection_ops.cc" />
+    <ClCompile Include="google\protobuf\repeated_field.cc" />
+    <ClCompile Include="google\protobuf\service.cc" />
+    <ClCompile Include="google\protobuf\source_context.pb.cc" />
+    <ClCompile Include="google\protobuf\struct.pb.cc" />
+    <ClCompile Include="google\protobuf\stubs\bytestream.cc" />
+    <ClCompile Include="google\protobuf\stubs\common.cc" />
+    <ClCompile Include="google\protobuf\stubs\int128.cc" />
+    <ClCompile Include="google\protobuf\stubs\status.cc" />
+    <ClCompile Include="google\protobuf\stubs\statusor.cc" />
+    <ClCompile Include="google\protobuf\stubs\stringpiece.cc" />
+    <ClCompile Include="google\protobuf\stubs\stringprintf.cc" />
+    <ClCompile Include="google\protobuf\stubs\structurally_valid.cc" />
+    <ClCompile Include="google\protobuf\stubs\strutil.cc" />
+    <ClCompile Include="google\protobuf\stubs\substitute.cc" />
+    <ClCompile Include="google\protobuf\stubs\time.cc" />
+    <ClCompile Include="google\protobuf\text_format.cc" />
+    <ClCompile Include="google\protobuf\timestamp.pb.cc" />
+    <ClCompile Include="google\protobuf\type.pb.cc" />
+    <ClCompile Include="google\protobuf\unknown_field_set.cc" />
+    <ClCompile Include="google\protobuf\util\delimited_message_util.cc" />
+    <ClCompile Include="google\protobuf\util\field_comparator.cc" />
+    <ClCompile Include="google\protobuf\util\field_mask_util.cc" />
+    <ClCompile Include="google\protobuf\util\internal\datapiece.cc" />
+    <ClCompile Include="google\protobuf\util\internal\default_value_objectwriter.cc" />
+    <ClCompile Include="google\protobuf\util\internal\error_listener.cc" />
+    <ClCompile Include="google\protobuf\util\internal\field_mask_utility.cc" />
+    <ClCompile Include="google\protobuf\util\internal\json_escaping.cc" />
+    <ClCompile Include="google\protobuf\util\internal\json_objectwriter.cc" />
+    <ClCompile Include="google\protobuf\util\internal\json_stream_parser.cc" />
+    <ClCompile Include="google\protobuf\util\internal\object_writer.cc" />
+    <ClCompile Include="google\protobuf\util\internal\protostream_objectsource.cc" />
+    <ClCompile Include="google\protobuf\util\internal\protostream_objectwriter.cc" />
+    <ClCompile Include="google\protobuf\util\internal\proto_writer.cc" />
+    <ClCompile Include="google\protobuf\util\internal\type_info.cc" />
+    <ClCompile Include="google\protobuf\util\internal\utility.cc" />
+    <ClCompile Include="google\protobuf\util\json_util.cc" />
+    <ClCompile Include="google\protobuf\util\message_differencer.cc" />
+    <ClCompile Include="google\protobuf\util\time_util.cc" />
+    <ClCompile Include="google\protobuf\util\type_resolver_util.cc" />
+    <ClCompile Include="google\protobuf\wire_format.cc" />
+    <ClCompile Include="google\protobuf\wire_format_lite.cc" />
+    <ClCompile Include="google\protobuf\wrappers.pb.cc" />
+    <ClCompile Include="linkPortClient.cpp" />
+    <ClCompile Include="Login.cpp" />
+    <ClCompile Include="LogView.cpp" />
+    <ClCompile Include="LPPack.cpp" />
+    <ClCompile Include="ManagerWindow.cpp" />
+    <ClCompile Include="pb\class.pb.cc" />
+    <ClCompile Include="pb\net.pb.cc" />
+    <ClCompile Include="pb\student.pb.cc" />
+    <ClCompile Include="pb\task.pb.cc" />
+    <ClCompile Include="pb\user.pb.cc" />
+    <ClCompile Include="rsasignature.cpp" />
+    <ClCompile Include="SetConfig.cpp" />
+    <ClCompile Include="singleManager.cpp" />
+    <ClCompile Include="UserWindow.cpp" />
+    <QtRcc Include="Client.qrc" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="AddClass.h" />
+    <ClInclude Include="CJsonObject\cJSON.h" />
+    <ClInclude Include="CJsonObject\CJsonObject.hpp" />
+    <ClInclude Include="getConfig.h" />
+    <ClInclude Include="getUser.h" />
+    <ClInclude Include="google\protobuf\any.h" />
+    <ClInclude Include="google\protobuf\any.pb.h" />
+    <ClInclude Include="google\protobuf\api.pb.h" />
+    <ClInclude Include="google\protobuf\arena.h" />
+    <ClInclude Include="google\protobuf\arenastring.h" />
+    <ClInclude Include="google\protobuf\arena_impl.h" />
+    <ClInclude Include="google\protobuf\descriptor.h" />
+    <ClInclude Include="google\protobuf\descriptor.pb.h" />
+    <ClInclude Include="google\protobuf\descriptor_database.h" />
+    <ClInclude Include="google\protobuf\duration.pb.h" />
+    <ClInclude Include="google\protobuf\dynamic_message.h" />
+    <ClInclude Include="google\protobuf\empty.pb.h" />
+    <ClInclude Include="google\protobuf\extension_set.h" />
+    <ClInclude Include="google\protobuf\extension_set_inl.h" />
+    <ClInclude Include="google\protobuf\field_access_listener.h" />
+    <ClInclude Include="google\protobuf\field_mask.pb.h" />
+    <ClInclude Include="google\protobuf\generated_enum_reflection.h" />
+    <ClInclude Include="google\protobuf\generated_enum_util.h" />
+    <ClInclude Include="google\protobuf\generated_message_reflection.h" />
+    <ClInclude Include="google\protobuf\generated_message_table_driven.h" />
+    <ClInclude Include="google\protobuf\generated_message_table_driven_lite.h" />
+    <ClInclude Include="google\protobuf\generated_message_tctable_decl.h" />
+    <ClInclude Include="google\protobuf\generated_message_tctable_impl.h" />
+    <ClInclude Include="google\protobuf\generated_message_util.h" />
+    <ClInclude Include="google\protobuf\has_bits.h" />
+    <ClInclude Include="google\protobuf\implicit_weak_message.h" />
+    <ClInclude Include="google\protobuf\io\coded_stream.h" />
+    <ClInclude Include="google\protobuf\io\gzip_stream.h" />
+    <ClInclude Include="google\protobuf\io\io_win32.h" />
+    <ClInclude Include="google\protobuf\io\package_info.h" />
+    <ClInclude Include="google\protobuf\io\printer.h" />
+    <ClInclude Include="google\protobuf\io\strtod.h" />
+    <ClInclude Include="google\protobuf\io\tokenizer.h" />
+    <ClInclude Include="google\protobuf\io\zero_copy_stream.h" />
+    <ClInclude Include="google\protobuf\io\zero_copy_stream_impl.h" />
+    <ClInclude Include="google\protobuf\io\zero_copy_stream_impl_lite.h" />
+    <ClInclude Include="google\protobuf\map.h" />
+    <ClInclude Include="google\protobuf\map_entry.h" />
+    <ClInclude Include="google\protobuf\map_entry_lite.h" />
+    <ClInclude Include="google\protobuf\map_field.h" />
+    <ClInclude Include="google\protobuf\map_field_inl.h" />
+    <ClInclude Include="google\protobuf\map_field_lite.h" />
+    <ClInclude Include="google\protobuf\map_type_handler.h" />
+    <ClInclude Include="google\protobuf\message.h" />
+    <ClInclude Include="google\protobuf\message_lite.h" />
+    <ClInclude Include="google\protobuf\metadata.h" />
+    <ClInclude Include="google\protobuf\metadata_lite.h" />
+    <ClInclude Include="google\protobuf\package_info.h" />
+    <ClInclude Include="google\protobuf\parse_context.h" />
+    <ClInclude Include="google\protobuf\port.h" />
+    <ClInclude Include="google\protobuf\reflection.h" />
+    <ClInclude Include="google\protobuf\reflection_internal.h" />
+    <ClInclude Include="google\protobuf\reflection_ops.h" />
+    <ClInclude Include="google\protobuf\repeated_field.h" />
+    <ClInclude Include="google\protobuf\service.h" />
+    <ClInclude Include="google\protobuf\source_context.pb.h" />
+    <ClInclude Include="google\protobuf\struct.pb.h" />
+    <ClInclude Include="google\protobuf\stubs\bytestream.h" />
+    <ClInclude Include="google\protobuf\stubs\callback.h" />
+    <ClInclude Include="google\protobuf\stubs\casts.h" />
+    <ClInclude Include="google\protobuf\stubs\common.h" />
+    <ClInclude Include="google\protobuf\stubs\hash.h" />
+    <ClInclude Include="google\protobuf\stubs\int128.h" />
+    <ClInclude Include="google\protobuf\stubs\logging.h" />
+    <ClInclude Include="google\protobuf\stubs\macros.h" />
+    <ClInclude Include="google\protobuf\stubs\map_util.h" />
+    <ClInclude Include="google\protobuf\stubs\mathutil.h" />
+    <ClInclude Include="google\protobuf\stubs\mutex.h" />
+    <ClInclude Include="google\protobuf\stubs\once.h" />
+    <ClInclude Include="google\protobuf\stubs\platform_macros.h" />
+    <ClInclude Include="google\protobuf\stubs\port.h" />
+    <ClInclude Include="google\protobuf\stubs\status.h" />
+    <ClInclude Include="google\protobuf\stubs\statusor.h" />
+    <ClInclude Include="google\protobuf\stubs\status_macros.h" />
+    <ClInclude Include="google\protobuf\stubs\stl_util.h" />
+    <ClInclude Include="google\protobuf\stubs\stringpiece.h" />
+    <ClInclude Include="google\protobuf\stubs\stringprintf.h" />
+    <ClInclude Include="google\protobuf\stubs\strutil.h" />
+    <ClInclude Include="google\protobuf\stubs\substitute.h" />
+    <ClInclude Include="google\protobuf\stubs\template_util.h" />
+    <ClInclude Include="google\protobuf\stubs\time.h" />
+    <ClInclude Include="google\protobuf\text_format.h" />
+    <ClInclude Include="google\protobuf\timestamp.pb.h" />
+    <ClInclude Include="google\protobuf\type.pb.h" />
+    <ClInclude Include="google\protobuf\unknown_field_set.h" />
+    <ClInclude Include="google\protobuf\util\delimited_message_util.h" />
+    <ClInclude Include="google\protobuf\util\field_comparator.h" />
+    <ClInclude Include="google\protobuf\util\field_mask_util.h" />
+    <ClInclude Include="google\protobuf\util\internal\constants.h" />
+    <ClInclude Include="google\protobuf\util\internal\datapiece.h" />
+    <ClInclude Include="google\protobuf\util\internal\default_value_objectwriter.h" />
+    <ClInclude Include="google\protobuf\util\internal\error_listener.h" />
+    <ClInclude Include="google\protobuf\util\internal\expecting_objectwriter.h" />
+    <ClInclude Include="google\protobuf\util\internal\field_mask_utility.h" />
+    <ClInclude Include="google\protobuf\util\internal\json_escaping.h" />
+    <ClInclude Include="google\protobuf\util\internal\json_objectwriter.h" />
+    <ClInclude Include="google\protobuf\util\internal\json_stream_parser.h" />
+    <ClInclude Include="google\protobuf\util\internal\location_tracker.h" />
+    <ClInclude Include="google\protobuf\util\internal\mock_error_listener.h" />
+    <ClInclude Include="google\protobuf\util\internal\object_location_tracker.h" />
+    <ClInclude Include="google\protobuf\util\internal\object_source.h" />
+    <ClInclude Include="google\protobuf\util\internal\object_writer.h" />
+    <ClInclude Include="google\protobuf\util\internal\protostream_objectsource.h" />
+    <ClInclude Include="google\protobuf\util\internal\protostream_objectwriter.h" />
+    <ClInclude Include="google\protobuf\util\internal\proto_writer.h" />
+    <ClInclude Include="google\protobuf\util\internal\structured_objectwriter.h" />
+    <ClInclude Include="google\protobuf\util\internal\type_info.h" />
+    <ClInclude Include="google\protobuf\util\internal\utility.h" />
+    <ClInclude Include="google\protobuf\util\json_util.h" />
+    <ClInclude Include="google\protobuf\util\message_differencer.h" />
+    <ClInclude Include="google\protobuf\util\package_info.h" />
+    <ClInclude Include="google\protobuf\util\time_util.h" />
+    <ClInclude Include="google\protobuf\util\type_resolver.h" />
+    <ClInclude Include="google\protobuf\util\type_resolver_util.h" />
+    <ClInclude Include="google\protobuf\wire_format.h" />
+    <ClInclude Include="google\protobuf\wire_format_lite.h" />
+    <ClInclude Include="google\protobuf\wrappers.pb.h" />
+    <QtMoc Include="linkPortClient.h" />
+    <QtMoc Include="Login.h" />
+    <QtMoc Include="LogView.h" />
+    <ClInclude Include="LPPack.h" />
+    <QtMoc Include="ManagerWindow.h" />
+    <ClInclude Include="pb\class.pb.h" />
+    <ClInclude Include="pb\net.pb.h" />
+    <ClInclude Include="pb\pb.h" />
+    <ClInclude Include="pb\student.pb.h" />
+    <ClInclude Include="pb\task.pb.h" />
+    <ClInclude Include="pb\user.pb.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="rsasignature.h" />
+    <QtMoc Include="SetConfig.h" />
+    <ClInclude Include="singleManager.h" />
+    <QtMoc Include="UserWindow.h" />
+    <ClInclude Include="version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+    <None Include="google\protobuf\generated_message_tctable_impl.inc" />
+    <None Include="google\protobuf\port_def.inc" />
+    <None Include="google\protobuf\port_undef.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="AddClass.ui" />
+    <QtUic Include="Login.ui" />
+    <QtUic Include="LogView.ui" />
+    <QtUic Include="ManagerWindow.ui" />
+    <QtUic Include="SetConfig.ui" />
+    <QtUic Include="UserWindow.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico" />
+    <Image Include="icon.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

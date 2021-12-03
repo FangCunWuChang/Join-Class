@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package JC;
+
+message User {
+    string id = 1;
+    bytes password = 2;
+
+    enum Type {
+        USER = 0;
+        MANAGER = 1;
+    }
+
+    Type type = 3;
+}

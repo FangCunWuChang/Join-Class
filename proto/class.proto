@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package JC;
+
+message Class {
+    string id = 1;
+    string name = 2;
+
+    enum Type{
+        PUBLIC = 0;
+        REQUIRED = 1;
+        OPTIONAL = 2;
+    }
+    Type type = 3;
+
+    uint32 timeClass = 4;
+    uint32 timeExper = 5;
+
+    uint32 credit = 6;
+    string term = 7;
+}

@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package JC.Net;
+
+import "task.proto";
+import "class.proto";
+import "user.proto";
+import "student.proto";
+
+message Request {
+    enum Type {
+        LOGIN = 0;
+        GETUSERLIST = 1;
+        ADDUSER = 2;
+        CHANGEUSER = 3;
+        DELUSER = 4;
+        GETCONFIG = 5;
+        SETCONFIG = 6;
+        GETTASK = 7;
+        SETTASK = 8;
+        GETSTUDENT = 9;
+        JOINCLASS = 10;
+        GETLOGLIST = 11;
+        GETLOGDATA = 12;
+        CLEARLOGS = 13;
+        SHUTDOWN = 14;
+        RESTART = 15;
+        TEST = 16;
+    }
+    Type type = 1;
+
+    string user = 2;
+    bytes password = 3;
+
+    JC.User newuser = 4;
+
+    string config = 5;
+
+    JC.Task task = 6;
+
+    repeated string classes = 7;
+
+    string logname = 8;
+}
+
+message Answer {
+    enum Type{
+        ERROR = 0;
+        DONE = 1;
+        DENIED = 2;
+    }
+
+    Type type = 1;
+    string mesage = 2;
+
+    JC.User.Type userType = 3;
+
+    JC.Task task = 4;
+
+    repeated JC.Class classes = 5;
+    JC.Student student = 6;
+
+    repeated string logList = 7;
+    string logData = 8;
+
+    repeated JC.User userList = 9;
+
+    string config = 10;
+}
+
+message RequestPack {
+    bytes signature = 1;
+    Request pack = 2;
+}
+
+message AnswerPack {
+    bytes signature = 1;
+    Answer pack = 2;
+}
