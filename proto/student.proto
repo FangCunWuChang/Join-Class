@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package JC;
+
+message Student {
+    string id = 1;
+    string name = 2;
+    repeated string classes = 3; 
+}

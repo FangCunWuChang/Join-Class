@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package JC;
+
+import "class.proto";
+import "student.proto";
+
+message Task {
+    repeated JC.Class classes = 1;
+    repeated JC.Student students = 2;
+}
