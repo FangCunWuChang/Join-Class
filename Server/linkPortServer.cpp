@@ -9,7 +9,7 @@ LinkPortServer::~LinkPortServer()
 {
 	if (this->tcpServer != nullptr) {
 		if (this->tcpServer->isListening()) {
-			this->stoplisten();
+		this->stoplisten();
 		}
 		this->tcpServer->deleteLater();
 		Logger::log("LinkPort Server exit!");
