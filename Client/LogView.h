@@ -1,13 +1,14 @@
 #pragma once
 
 #include <QDialog>
+#include <QMessageBox>
 #include "CJsonObject/CJsonObject.hpp"
 #include "pb/pb.h"
 #include "LPPack.h"
 #include "linkPortClient.h"
 namespace Ui { class LogView; };
 
-class LogView : public QDialog
+class LogView final : public QDialog
 {
 	Q_OBJECT
 
@@ -25,4 +26,9 @@ private:
 
 protected:
 	void showEvent(QShowEvent* event)override;
+
+private slots:
+	void on_logs_currentRowChanged(int currentRow);
+	void on_getLogs_clicked();
+	void on_clearLogs_clicked();
 };

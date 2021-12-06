@@ -8,7 +8,7 @@
 #include "pb/pb.h"
 #include "QStringList"
 
-class Tasks
+class Tasks final
 {
 public:
 	static JC::Task getTask();

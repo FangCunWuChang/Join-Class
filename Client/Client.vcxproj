@@ -202,6 +202,7 @@
     <ClCompile Include="pb\task.pb.cc" />
     <ClCompile Include="pb\user.pb.cc" />
     <ClCompile Include="rsasignature.cpp" />
+    <ClCompile Include="ServerManage.cpp" />
     <ClCompile Include="SetConfig.cpp" />
     <ClCompile Include="singleManager.cpp" />
     <ClCompile Include="UserWindow.cpp" />
@@ -345,6 +346,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="rsasignature.h" />
     <QtMoc Include="SetConfig.h" />
+    <QtMoc Include="ServerManage.h" />
     <ClInclude Include="singleManager.h" />
     <QtMoc Include="UserWindow.h" />
     <ClInclude Include="version.h" />
@@ -360,6 +362,7 @@
     <QtUic Include="Login.ui" />
     <QtUic Include="LogView.ui" />
     <QtUic Include="ManagerWindow.ui" />
+    <QtUic Include="ServerManage.ui" />
     <QtUic Include="SetConfig.ui" />
     <QtUic Include="UserWindow.ui" />
   </ItemGroup>

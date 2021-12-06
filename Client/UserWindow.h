@@ -5,7 +5,7 @@
 #include "CJsonObject/CJsonObject.hpp"
 namespace Ui { class UserWindow; };
 
-class UserWindow : public QMainWindow
+class UserWindow final : public QMainWindow
 {
 	Q_OBJECT
 

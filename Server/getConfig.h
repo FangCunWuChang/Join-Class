@@ -8,7 +8,7 @@
 #include "CJsonObject/CJsonObject.hpp"
 #include "logger.h"
 
-class GetConfig
+class GetConfig final
 {
 public:
 	static neb::CJsonObject config();

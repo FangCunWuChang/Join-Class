@@ -11,7 +11,7 @@
 #include "rsasignature.h"
 #include <QVector>
 
-class Users
+class Users final
 {
 public:
 	static bool login(QString name, QByteArray passWord);

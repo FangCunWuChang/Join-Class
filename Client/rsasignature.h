@@ -20,7 +20,7 @@
 #pragma comment(lib, "openssl/libcrypto.lib")
 #pragma comment(lib, "openssl/libssl.lib")
 
-class RSASignature
+class RSASignature final
 {
 public:
 	RSASignature();

@@ -8,7 +8,7 @@
 #include <QStringList>
 #include <QDir>
 
-class Logger
+class Logger final
 {
 public:
     static void log(QString text);

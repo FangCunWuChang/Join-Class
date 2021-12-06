@@ -10,7 +10,7 @@
 
 namespace Ui { class SetConfig; };
 
-class SetConfig : public QDialog 
+class SetConfig final : public QDialog 
 {
 	Q_OBJECT
 

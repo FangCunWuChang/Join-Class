@@ -3,7 +3,7 @@
 #include <QDialog>
 namespace Ui { class AddClass; };
 
-class AddClass : public QDialog
+class AddClass final : public QDialog
 {
 	Q_OBJECT
 

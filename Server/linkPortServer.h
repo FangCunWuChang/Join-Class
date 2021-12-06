@@ -16,7 +16,7 @@
 #include <QVector>
 #include <QMap>
 
-class TimerClock : public QObject {
+class TimerClock final : public QObject {
 	Q_OBJECT
 public:
 	TimerClock(QObject* parent = Q_NULLPTR) : QObject(parent)
@@ -58,7 +58,7 @@ signals:
 	void timeOut(QString name);
 };
 
-class LinkPortServer : public QObject
+class LinkPortServer final : public QObject
 {
 	Q_OBJECT
 

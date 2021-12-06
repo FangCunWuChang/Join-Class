@@ -9,7 +9,7 @@
 #include <QTimer>
 #include "CJsonObject/CJsonObject.hpp"
 
-class LinkPortClient : public QObject
+class LinkPortClient final : public QObject
 {
 	Q_OBJECT
 

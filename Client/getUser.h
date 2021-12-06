@@ -5,7 +5,7 @@
 #include <QCoreApplication>
 #include "CJsonObject/CJsonObject.hpp"
 
-class GetUser
+class GetUser final
 {
 public:
 	static bool check();

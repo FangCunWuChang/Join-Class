@@ -9,10 +9,11 @@
 #include "linkPortClient.h"
 #include "pb/pb.h"
 #include "LPPack.h"
+#include "LogView.h"
 
 namespace Ui { class ManagerWindow; };
 
-class ManagerWindow : public QMainWindow
+class ManagerWindow final : public QMainWindow
 {
 	Q_OBJECT
 
@@ -33,6 +34,8 @@ private slots:
 	void on_actionServer_Information_triggered(bool checked);
 	void on_actionServer_Restart_triggered(bool checked);
 	void on_actionServer_Shutdown_triggered(bool checked);
+	void on_actionLog_Manage_triggered(bool checked);
+	void on_actionServer_Config_triggered(bool checked);
 
 	void on_classes_currentItemChanged(QTableWidgetItem* current, QTableWidgetItem* previous);
 	void on_students_currentItemChanged(QTableWidgetItem* current, QTableWidgetItem* previous);

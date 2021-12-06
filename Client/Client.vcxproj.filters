@@ -325,6 +325,9 @@
     <ClCompile Include="LogView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ServerManage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pb\class.pb.h">
@@ -758,6 +761,9 @@
     <QtMoc Include="LogView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="ServerManage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="SetConfig.ui">
@@ -776,6 +782,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="LogView.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ServerManage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

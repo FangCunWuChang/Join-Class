@@ -8,7 +8,7 @@
 #include <QCoreApplication>
 #include <QMutex>
 
-class LPPack
+class LPPack final
 {
 public:
 	static bool packRequestWithPrivate(JC::Net::Request& data, QByteArray& pack);

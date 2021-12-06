@@ -4,7 +4,7 @@
 #include <QString>
 #include <QSystemSemaphore>
 
-class SingleManager
+class SingleManager final
 {
 	SingleManager();
 	static SingleManager single;

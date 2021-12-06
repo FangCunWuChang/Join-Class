@@ -8,7 +8,7 @@
 #include <QMutex>
 #include "CJsonObject/CJsonObject.hpp"
 
-class GetConfig
+class GetConfig final
 {
 public:
 	static neb::CJsonObject config();

@@ -1,6 +1,10 @@
 #include "ManagerWindow.h"
 #include "ui_ManagerWindow.h"
 
+#if _MSC_VER >= 1600
+#pragma execution_character_set("utf-8")
+#endif
+
 ManagerWindow::ManagerWindow(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -131,6 +135,21 @@ void ManagerWindow::on_actionServer_Shutdown_triggered(bool checked)
 	emit this->showConfig();
 	this->close();
 	return;
+}
+
+void ManagerWindow::on_actionLog_Manage_triggered(bool checked)
+{
+	Q_UNUSED(checked);
+	LogView lv(this);
+	lv.setWindowFlags(Qt::Dialog | Qt::WindowTitleHint | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
+	lv.init(this->config, this->userName, this->userPassword);
+	lv.exec();
+}
+
+void ManagerWindow::on_actionServer_Config_triggered(bool checked)
+{
+	Q_UNUSED(checked);
+
 }
 
 void ManagerWindow::on_classes_currentItemChanged(QTableWidgetItem* current, QTableWidgetItem* previous)

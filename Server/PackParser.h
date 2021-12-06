@@ -16,7 +16,7 @@
 #include "tasks.h"
 #include "singleManager.h"
 
-class PackParser :
+class PackParser final :
     public QObject
 {
     Q_OBJECT
