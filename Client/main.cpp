@@ -67,6 +67,8 @@ int main(int argc, char *argv[])
         QObject::connect(&login, &Login::showUser, &uw, &UserWindow::show);
         QObject::connect(&mw, &ManagerWindow::initConfig, &setconfig, &SetConfig::init);
         QObject::connect(&mw, &ManagerWindow::showConfig, &setconfig, &SetConfig::show);
+        QObject::connect(&mw, &ManagerWindow::initLogin, &login, &Login::init);
+        QObject::connect(&mw, &ManagerWindow::showLogin, &login, &Login::show);
         QObject::connect(&login, &Login::showManager, connectMan);
         
         if (GetConfig::checkConfig()) {

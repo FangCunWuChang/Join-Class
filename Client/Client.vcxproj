@@ -110,6 +110,7 @@
     <ClCompile Include="AddClass.cpp" />
     <ClCompile Include="CJsonObject\cJSON.c" />
     <ClCompile Include="CJsonObject\CJsonObject.cpp" />
+    <ClCompile Include="EditClass.cpp" />
     <ClCompile Include="getConfig.cpp" />
     <ClCompile Include="getUser.cpp" />
     <ClCompile Include="google\protobuf\any.cc" />
@@ -213,6 +214,7 @@
     <QtMoc Include="AddClass.h" />
     <ClInclude Include="CJsonObject\cJSON.h" />
     <ClInclude Include="CJsonObject\CJsonObject.hpp" />
+    <QtMoc Include="EditClass.h" />
     <ClInclude Include="getConfig.h" />
     <ClInclude Include="getUser.h" />
     <ClInclude Include="google\protobuf\any.h" />

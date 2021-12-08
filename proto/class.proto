@@ -13,9 +13,9 @@ message Class {
     }
     Type type = 3;
 
-    uint32 timeClass = 4;
-    uint32 timeExper = 5;
+    double timeClass = 4;
+    double timeExper = 5;
 
-    uint32 credit = 6;
+    double credit = 6;
     string term = 7;
 }

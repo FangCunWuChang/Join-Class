@@ -242,10 +242,10 @@ class Class final :
     kIdFieldNumber = 1,
     kNameFieldNumber = 2,
     kTermFieldNumber = 7,
-    kTypeFieldNumber = 3,
     kTimeClassFieldNumber = 4,
     kTimeExperFieldNumber = 5,
     kCreditFieldNumber = 6,
+    kTypeFieldNumber = 3,
   };
   // string id = 1;
   void clear_id();
@@ -289,6 +289,33 @@ class Class final :
   std::string* _internal_mutable_term();
   public:
 
+  // double timeClass = 4;
+  void clear_timeclass();
+  double timeclass() const;
+  void set_timeclass(double value);
+  private:
+  double _internal_timeclass() const;
+  void _internal_set_timeclass(double value);
+  public:
+
+  // double timeExper = 5;
+  void clear_timeexper();
+  double timeexper() const;
+  void set_timeexper(double value);
+  private:
+  double _internal_timeexper() const;
+  void _internal_set_timeexper(double value);
+  public:
+
+  // double credit = 6;
+  void clear_credit();
+  double credit() const;
+  void set_credit(double value);
+  private:
+  double _internal_credit() const;
+  void _internal_set_credit(double value);
+  public:
+
   // .JC.Class.Type type = 3;
   void clear_type();
   ::JC::Class_Type type() const;
@@ -296,33 +323,6 @@ class Class final :
   private:
   ::JC::Class_Type _internal_type() const;
   void _internal_set_type(::JC::Class_Type value);
-  public:
-
-  // uint32 timeClass = 4;
-  void clear_timeclass();
-  ::PROTOBUF_NAMESPACE_ID::uint32 timeclass() const;
-  void set_timeclass(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_timeclass() const;
-  void _internal_set_timeclass(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // uint32 timeExper = 5;
-  void clear_timeexper();
-  ::PROTOBUF_NAMESPACE_ID::uint32 timeexper() const;
-  void set_timeexper(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_timeexper() const;
-  void _internal_set_timeexper(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // uint32 credit = 6;
-  void clear_credit();
-  ::PROTOBUF_NAMESPACE_ID::uint32 credit() const;
-  void set_credit(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_credit() const;
-  void _internal_set_credit(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:JC.Class)
@@ -335,10 +335,10 @@ class Class final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr term_;
+  double timeclass_;
+  double timeexper_;
+  double credit_;
   int type_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 timeclass_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 timeexper_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 credit_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_class_2eproto;
 };
@@ -465,62 +465,62 @@ inline void Class::set_type(::JC::Class_Type value) {
   // @@protoc_insertion_point(field_set:JC.Class.type)
 }
 
-// uint32 timeClass = 4;
+// double timeClass = 4;
 inline void Class::clear_timeclass() {
-  timeclass_ = 0u;
+  timeclass_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Class::_internal_timeclass() const {
+inline double Class::_internal_timeclass() const {
   return timeclass_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Class::timeclass() const {
+inline double Class::timeclass() const {
   // @@protoc_insertion_point(field_get:JC.Class.timeClass)
   return _internal_timeclass();
 }
-inline void Class::_internal_set_timeclass(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Class::_internal_set_timeclass(double value) {
   
   timeclass_ = value;
 }
-inline void Class::set_timeclass(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Class::set_timeclass(double value) {
   _internal_set_timeclass(value);
   // @@protoc_insertion_point(field_set:JC.Class.timeClass)
 }
 
-// uint32 timeExper = 5;
+// double timeExper = 5;
 inline void Class::clear_timeexper() {
-  timeexper_ = 0u;
+  timeexper_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Class::_internal_timeexper() const {
+inline double Class::_internal_timeexper() const {
   return timeexper_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Class::timeexper() const {
+inline double Class::timeexper() const {
   // @@protoc_insertion_point(field_get:JC.Class.timeExper)
   return _internal_timeexper();
 }
-inline void Class::_internal_set_timeexper(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Class::_internal_set_timeexper(double value) {
   
   timeexper_ = value;
 }
-inline void Class::set_timeexper(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Class::set_timeexper(double value) {
   _internal_set_timeexper(value);
   // @@protoc_insertion_point(field_set:JC.Class.timeExper)
 }
 
-// uint32 credit = 6;
+// double credit = 6;
 inline void Class::clear_credit() {
-  credit_ = 0u;
+  credit_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Class::_internal_credit() const {
+inline double Class::_internal_credit() const {
   return credit_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Class::credit() const {
+inline double Class::credit() const {
   // @@protoc_insertion_point(field_get:JC.Class.credit)
   return _internal_credit();
 }
-inline void Class::_internal_set_credit(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Class::_internal_set_credit(double value) {
   
   credit_ = value;
 }
-inline void Class::set_credit(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Class::set_credit(double value) {
   _internal_set_credit(value);
   // @@protoc_insertion_point(field_set:JC.Class.credit)
 }

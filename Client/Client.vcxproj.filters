@@ -328,6 +328,9 @@
     <ClCompile Include="ServerManage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EditClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pb\class.pb.h">
@@ -762,6 +765,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="ServerManage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="EditClass.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

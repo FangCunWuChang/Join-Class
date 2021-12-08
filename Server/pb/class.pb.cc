@@ -22,11 +22,11 @@ constexpr Class::Class(
   : id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , term_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , timeclass_(0)
+  , timeexper_(0)
+  , credit_(0)
   , type_(0)
-
-  , timeclass_(0u)
-  , timeexper_(0u)
-  , credit_(0u){}
+{}
 struct ClassDefaultTypeInternal {
   constexpr ClassDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -66,8 +66,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_class_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\013class.proto\022\002JC\"\263\001\n\005Class\022\n\n\002id\030\001 \001(\t\022"
   "\014\n\004name\030\002 \001(\t\022\034\n\004type\030\003 \001(\0162\016.JC.Class.T"
-  "ype\022\021\n\ttimeClass\030\004 \001(\r\022\021\n\ttimeExper\030\005 \001("
-  "\r\022\016\n\006credit\030\006 \001(\r\022\014\n\004term\030\007 \001(\t\".\n\004Type\022"
+  "ype\022\021\n\ttimeClass\030\004 \001(\001\022\021\n\ttimeExper\030\005 \001("
+  "\001\022\016\n\006credit\030\006 \001(\001\022\014\n\004term\030\007 \001(\t\".\n\004Type\022"
   "\n\n\006PUBLIC\020\000\022\014\n\010REQUIRED\020\001\022\014\n\010OPTIONAL\020\002b"
   "\006proto3"
   ;
@@ -142,9 +142,9 @@ Class::Class(const Class& from)
     term_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_term(), 
       GetArenaForAllocation());
   }
-  ::memcpy(&type_, &from.type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&credit_) -
-    reinterpret_cast<char*>(&type_)) + sizeof(credit_));
+  ::memcpy(&timeclass_, &from.timeclass_,
+    static_cast<size_t>(reinterpret_cast<char*>(&type_) -
+    reinterpret_cast<char*>(&timeclass_)) + sizeof(type_));
   // @@protoc_insertion_point(copy_constructor:JC.Class)
 }
 
@@ -153,9 +153,9 @@ id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyIn
 name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 term_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&type_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&credit_) -
-    reinterpret_cast<char*>(&type_)) + sizeof(credit_));
+    reinterpret_cast<char*>(&timeclass_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&type_) -
+    reinterpret_cast<char*>(&timeclass_)) + sizeof(type_));
 }
 
 Class::~Class() {
@@ -191,9 +191,9 @@ void Class::Clear() {
   id_.ClearToEmpty();
   name_.ClearToEmpty();
   term_.ClearToEmpty();
-  ::memset(&type_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&credit_) -
-      reinterpret_cast<char*>(&type_)) + sizeof(credit_));
+  ::memset(&timeclass_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&type_) -
+      reinterpret_cast<char*>(&timeclass_)) + sizeof(type_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -229,25 +229,25 @@ const char* Class::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
           _internal_set_type(static_cast<::JC::Class_Type>(val));
         } else goto handle_unusual;
         continue;
-      // uint32 timeClass = 4;
+      // double timeClass = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          timeclass_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
+          timeclass_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // uint32 timeExper = 5;
+      // double timeExper = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          timeexper_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
+          timeexper_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // uint32 credit = 6;
+      // double credit = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          credit_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
+          credit_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
       // string term = 7;
@@ -315,22 +315,22 @@ failure:
       3, this->_internal_type(), target);
   }
 
-  // uint32 timeClass = 4;
-  if (this->_internal_timeclass() != 0) {
+  // double timeClass = 4;
+  if (!(this->_internal_timeclass() <= 0 && this->_internal_timeclass() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_timeclass(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_timeclass(), target);
   }
 
-  // uint32 timeExper = 5;
-  if (this->_internal_timeexper() != 0) {
+  // double timeExper = 5;
+  if (!(this->_internal_timeexper() <= 0 && this->_internal_timeexper() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_timeexper(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_timeexper(), target);
   }
 
-  // uint32 credit = 6;
-  if (this->_internal_credit() != 0) {
+  // double credit = 6;
+  if (!(this->_internal_credit() <= 0 && this->_internal_credit() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_credit(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(6, this->_internal_credit(), target);
   }
 
   // string term = 7;
@@ -380,31 +380,25 @@ size_t Class::ByteSizeLong() const {
         this->_internal_term());
   }
 
+  // double timeClass = 4;
+  if (!(this->_internal_timeclass() <= 0 && this->_internal_timeclass() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double timeExper = 5;
+  if (!(this->_internal_timeexper() <= 0 && this->_internal_timeexper() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double credit = 6;
+  if (!(this->_internal_credit() <= 0 && this->_internal_credit() >= 0)) {
+    total_size += 1 + 8;
+  }
+
   // .JC.Class.Type type = 3;
   if (this->_internal_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
-  }
-
-  // uint32 timeClass = 4;
-  if (this->_internal_timeclass() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_timeclass());
-  }
-
-  // uint32 timeExper = 5;
-  if (this->_internal_timeexper() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_timeexper());
-  }
-
-  // uint32 credit = 6;
-  if (this->_internal_credit() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_credit());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -444,17 +438,17 @@ void Class::MergeFrom(const Class& from) {
   if (!from._internal_term().empty()) {
     _internal_set_term(from._internal_term());
   }
-  if (from._internal_type() != 0) {
-    _internal_set_type(from._internal_type());
-  }
-  if (from._internal_timeclass() != 0) {
+  if (!(from._internal_timeclass() <= 0 && from._internal_timeclass() >= 0)) {
     _internal_set_timeclass(from._internal_timeclass());
   }
-  if (from._internal_timeexper() != 0) {
+  if (!(from._internal_timeexper() <= 0 && from._internal_timeexper() >= 0)) {
     _internal_set_timeexper(from._internal_timeexper());
   }
-  if (from._internal_credit() != 0) {
+  if (!(from._internal_credit() <= 0 && from._internal_credit() >= 0)) {
     _internal_set_credit(from._internal_credit());
+  }
+  if (from._internal_type() != 0) {
+    _internal_set_type(from._internal_type());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -489,11 +483,11 @@ void Class::InternalSwap(Class* other) {
       &other->term_, other->GetArenaForAllocation()
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Class, credit_)
-      + sizeof(Class::credit_)
-      - PROTOBUF_FIELD_OFFSET(Class, type_)>(
-          reinterpret_cast<char*>(&type_),
-          reinterpret_cast<char*>(&other->type_));
+      PROTOBUF_FIELD_OFFSET(Class, type_)
+      + sizeof(Class::type_)
+      - PROTOBUF_FIELD_OFFSET(Class, timeclass_)>(
+          reinterpret_cast<char*>(&timeclass_),
+          reinterpret_cast<char*>(&other->timeclass_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Class::GetMetadata() const {
