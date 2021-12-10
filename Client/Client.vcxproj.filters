@@ -331,6 +331,21 @@
     <ClCompile Include="EditClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ViewClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddStudent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditStudent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewStudent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegUsers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pb\class.pb.h">
@@ -770,6 +785,21 @@
     <QtMoc Include="EditClass.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="ViewClass.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="AddStudent.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="EditStudent.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ViewStudent.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="RegUsers.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="SetConfig.ui">
@@ -791,6 +821,18 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="ServerManage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ViewClass.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="AddStudent.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ViewStudent.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="RegUsers.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

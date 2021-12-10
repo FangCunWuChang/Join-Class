@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QByteArray>
 #include <QMutex>
+#include <QDir>
 #include "pb/pb.h"
 #include "QStringList"
 

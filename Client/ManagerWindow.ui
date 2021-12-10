@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>716</width>
+    <width>720</width>
     <height>505</height>
    </rect>
   </property>
@@ -44,7 +44,7 @@
            <enum>QAbstractItemView::SelectRows</enum>
           </property>
           <property name="sortingEnabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
            <bool>true</bool>
@@ -180,6 +180,9 @@
           <property name="selectionBehavior">
            <enum>QAbstractItemView::SelectRows</enum>
           </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
           <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
            <bool>true</bool>
           </attribute>
@@ -280,7 +283,71 @@
         <string>用户</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="0" rowspan="6">
+        <item row="3" column="1">
+         <widget class="QPushButton" name="resetUser">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>重置密码</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>266</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="4" column="1">
+         <widget class="QPushButton" name="typeUser">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>权限更改</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="addUser">
+          <property name="text">
+           <string>添加用户</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="regUser">
+          <property name="text">
+           <string>从学生注册</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="removeUser">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>移除用户</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="refreshUser">
+          <property name="text">
+           <string>刷新列表</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" rowspan="7">
          <widget class="QTableWidget" name="users">
           <property name="editTriggers">
            <set>QAbstractItemView::NoEditTriggers</set>
@@ -293,6 +360,9 @@
           </property>
           <property name="selectionBehavior">
            <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
           </property>
           <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
            <bool>true</bool>
@@ -309,63 +379,6 @@
           </column>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QPushButton" name="addUser">
-          <property name="text">
-           <string>添加用户</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="removeUser">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>移除用户</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="resetUser">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>重置密码</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QPushButton" name="typeUser">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>权限更改</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QPushButton" name="regUser">
-          <property name="text">
-           <string>从学生注册</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>266</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
        </layout>
       </widget>
      </widget>
@@ -377,7 +390,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>716</width>
+     <width>720</width>
      <height>22</height>
     </rect>
    </property>
@@ -391,12 +404,6 @@
     <addaction name="actionNew_Task"/>
     <addaction name="actionSave_Task"/>
     <addaction name="actionLoad_Task"/>
-    <addaction name="separator"/>
-    <addaction name="actionLoad_Classes"/>
-    <addaction name="actionSave_Classes"/>
-    <addaction name="separator"/>
-    <addaction name="actionLoad_Students"/>
-    <addaction name="actionSave_Students"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -433,35 +440,56 @@
    <property name="text">
     <string>拉取任务</string>
    </property>
+   <property name="shortcut">
+    <string>Shift+R</string>
+   </property>
   </action>
   <action name="actionSet_Task">
    <property name="text">
     <string>推送任务</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+P</string>
    </property>
   </action>
   <action name="actionNew_Task">
    <property name="text">
     <string>新建任务</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="actionSave_Task">
    <property name="text">
     <string>保存任务</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="actionLoad_Task">
    <property name="text">
     <string>打开任务</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
   </action>
   <action name="actionServer_Config">
    <property name="text">
     <string>服务器配置</string>
    </property>
+   <property name="shortcut">
+    <string>Alt+C</string>
+   </property>
   </action>
   <action name="actionServer_Information">
    <property name="text">
     <string>服务器信息</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+I</string>
    </property>
   </action>
   <action name="actionServer_Shutdown">
@@ -481,7 +509,10 @@
   </action>
   <action name="actionLogout">
    <property name="text">
-    <string>注销</string>
+    <string>退出登录</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
    </property>
   </action>
   <action name="actionAbout">
@@ -497,6 +528,9 @@
   <action name="actionLog_Manage">
    <property name="text">
     <string>日志管理</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+M</string>
    </property>
   </action>
   <action name="actionLoad_Classes">

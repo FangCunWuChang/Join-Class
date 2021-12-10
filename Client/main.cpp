@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
         mw.setWindowState(Qt::WindowMaximized);
         uw.setWindowState(Qt::WindowMaximized);
 
-        auto connectMan = [&login, &setconfig]()->void {
+        auto connectWin = [&login, &setconfig]()->void {
             QObject::disconnect(&setconfig, &SetConfig::configOK, &login, &Login::show);
             QObject::connect(&setconfig, &SetConfig::closed, &login, &Login::show); 
         };
@@ -69,7 +69,10 @@ int main(int argc, char *argv[])
         QObject::connect(&mw, &ManagerWindow::showConfig, &setconfig, &SetConfig::show);
         QObject::connect(&mw, &ManagerWindow::initLogin, &login, &Login::init);
         QObject::connect(&mw, &ManagerWindow::showLogin, &login, &Login::show);
-        QObject::connect(&login, &Login::showManager, connectMan);
+        QObject::connect(&uw, &UserWindow::initLogin, &login, &Login::init);
+        QObject::connect(&uw, &UserWindow::showLogin, &login, &Login::show);
+        QObject::connect(&login, &Login::showManager, connectWin);
+        QObject::connect(&login, &Login::showUser, connectWin);
         
         if (GetConfig::checkConfig()) {
             QObject::connect(&setconfig, &SetConfig::closed, &login, &Login::show);

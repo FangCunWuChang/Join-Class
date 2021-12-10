@@ -76,13 +76,31 @@ bool Users::find(QString name)
 void Users::init()
 {
 	Users::mutex.lock();
+	bool haveAdmin = false;
 	QDir dir(QCoreApplication::applicationDirPath() + "/users");
 	if (!dir.exists()) {
 		dir.mkdir(QCoreApplication::applicationDirPath() + "/users");
 		Logger::log("Created users directory");
 	}
-	QFile file(QCoreApplication::applicationDirPath() + "/users/admin.dat");
-	if (!file.exists()) {
+	else {
+		dir.setFilter(QDir::Files);
+		for (int i = 0; i < dir.count(); i++) {
+			if (dir[i].endsWith(".dat")) {
+				QFile file(QCoreApplication::applicationDirPath() + "/users/" + dir[i]);
+				if (file.open(QIODevice::ReadOnly)) {
+					QByteArray data = file.readAll();
+					JC::User user;
+					user.ParseFromArray(data.constData(), data.size());
+					file.close();
+					if (user.type() == JC::User_Type::User_Type_MANAGER) {
+						haveAdmin = true;
+						break;
+					}
+				}
+			}
+		}
+	}
+	if (!haveAdmin) {
 		JC::User user;
 		user.set_id("admin");
 		user.set_type(JC::User_Type::User_Type_MANAGER);
@@ -95,6 +113,7 @@ void Users::init()
 		QByteArray data(user.ByteSize(), 0);
 		user.SerializeToArray(data.data(), data.size());
 
+		QFile file(QCoreApplication::applicationDirPath() + "/users/admin.dat");
 		if (file.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
 			file.write(data);
 			file.close();

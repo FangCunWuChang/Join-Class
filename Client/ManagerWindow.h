@@ -13,6 +13,16 @@
 #include "ServerManage.h"
 #include "version.h"
 #include <QInputDialog>
+#include "EditClass.h"
+#include "ViewClass.h"
+#include "AddStudent.h"
+#include "EditStudent.h"
+#include <QVector>
+#include "ViewStudent.h"
+#include "RegUsers.h"
+#include <QFileDialog>
+#include <QDir>
+#include <QFileInfo>
 
 namespace Ui { class ManagerWindow; };
 
@@ -29,6 +39,19 @@ private:
 
 	neb::CJsonObject config;
 	QString userName, userPassword;
+
+	void resetCredit(int row);
+
+	void clearClasses();
+	void clearStudents();
+	void clearUsers();
+
+	void refreshUserList();
+
+	void parseTask(JC::Task& task);
+
+protected:
+	void closeEvent(QCloseEvent* event)override;
 
 public slots:
 	void init(neb::CJsonObject& config, QString userName, QString userPassword);
@@ -50,6 +73,28 @@ private slots:
 
 	void on_addClass_clicked();
 	void on_editClass_clicked();
+	void on_removeClass_clicked();
+	void on_viewClass_clicked();
+
+	void on_addStudent_clicked();
+	void on_editStudent_clicked();
+	void on_removeStudent_clicked();
+	void on_viewStudent_clicked();
+
+	void on_refreshUser_clicked();
+	void on_addUser_clicked();
+	void on_removeUser_clicked();
+	void on_resetUser_clicked();
+	void on_typeUser_clicked();
+	void on_regUser_clicked();
+
+	void on_actionGet_Task_triggered(bool checked);
+	void on_actionSet_Task_triggered(bool checked);
+	void on_actionNew_Task_triggered(bool checked);
+	void on_actionSave_Task_triggered(bool checked);
+	void on_actionLoad_Task_triggered(bool checked);
+
+	void on_tabWidget_currentChanged(int index);
 
 signals:
 	void initConfig(neb::CJsonObject& config);

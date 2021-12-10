@@ -2,7 +2,7 @@
 
 #include "AddClass.h"
 
-class EditClass : public AddClass
+class EditClass final : public AddClass
 {
 	Q_OBJECT
 

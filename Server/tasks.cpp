@@ -19,6 +19,10 @@ JC::Task Tasks::getTask()
 bool Tasks::setTask(const JC::Task& task)
 {
 	Tasks::mutex.lock();
+	QDir dir(QCoreApplication::applicationDirPath() + "/tasks");
+	if (!dir.exists()) {
+		dir.mkdir(QCoreApplication::applicationDirPath() + "/tasks");
+	}
 	QFile file(QCoreApplication::applicationDirPath() + "/tasks/task.dat");
 	if (file.exists()) {
 		if (!file.remove()) {

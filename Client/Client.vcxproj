@@ -108,9 +108,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddClass.cpp" />
+    <ClCompile Include="AddStudent.cpp" />
     <ClCompile Include="CJsonObject\cJSON.c" />
     <ClCompile Include="CJsonObject\CJsonObject.cpp" />
     <ClCompile Include="EditClass.cpp" />
+    <ClCompile Include="EditStudent.cpp" />
     <ClCompile Include="getConfig.cpp" />
     <ClCompile Include="getUser.cpp" />
     <ClCompile Include="google\protobuf\any.cc" />
@@ -202,19 +204,26 @@
     <ClCompile Include="pb\student.pb.cc" />
     <ClCompile Include="pb\task.pb.cc" />
     <ClCompile Include="pb\user.pb.cc" />
+    <ClCompile Include="RegUsers.cpp" />
     <ClCompile Include="rsasignature.cpp" />
     <ClCompile Include="ServerManage.cpp" />
     <ClCompile Include="SetConfig.cpp" />
     <ClCompile Include="singleManager.cpp" />
     <ClCompile Include="UserWindow.cpp" />
+    <ClCompile Include="ViewClass.cpp" />
+    <ClCompile Include="ViewStudent.cpp" />
     <QtRcc Include="Client.qrc" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="ViewStudent.h" />
+    <QtMoc Include="ViewClass.h" />
     <QtMoc Include="AddClass.h" />
+    <QtMoc Include="AddStudent.h" />
     <ClInclude Include="CJsonObject\cJSON.h" />
     <ClInclude Include="CJsonObject\CJsonObject.hpp" />
     <QtMoc Include="EditClass.h" />
+    <QtMoc Include="EditStudent.h" />
     <ClInclude Include="getConfig.h" />
     <ClInclude Include="getUser.h" />
     <ClInclude Include="google\protobuf\any.h" />
@@ -345,6 +354,7 @@
     <ClInclude Include="pb\student.pb.h" />
     <ClInclude Include="pb\task.pb.h" />
     <ClInclude Include="pb\user.pb.h" />
+    <QtMoc Include="RegUsers.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="rsasignature.h" />
     <QtMoc Include="SetConfig.h" />
@@ -361,12 +371,16 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="AddClass.ui" />
+    <QtUic Include="AddStudent.ui" />
     <QtUic Include="Login.ui" />
     <QtUic Include="LogView.ui" />
     <QtUic Include="ManagerWindow.ui" />
+    <QtUic Include="RegUsers.ui" />
     <QtUic Include="ServerManage.ui" />
     <QtUic Include="SetConfig.ui" />
     <QtUic Include="UserWindow.ui" />
+    <QtUic Include="ViewClass.ui" />
+    <QtUic Include="ViewStudent.ui" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />

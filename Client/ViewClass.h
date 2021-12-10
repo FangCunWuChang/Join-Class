@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QDialog>
-#include <QVector>
 #include "pb/pb.h"
 #include <QStringList>
 #include <QFile>
@@ -9,20 +8,19 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QMessageBox>
-namespace Ui { class ViewStudent; };
+namespace Ui { class ViewClass; };
 
-class ViewStudent final : public QDialog
+class ViewClass final : public QDialog
 {
 	Q_OBJECT
 
 public:
-	ViewStudent(QWidget *parent = Q_NULLPTR);
-	~ViewStudent();
+	ViewClass(QWidget *parent = Q_NULLPTR);
+	~ViewClass();
 
-	void init(JC::Student& student, QVector<JC::Class>& classes);
-
+	void init(JC::Class& clas, QStringList idL, QStringList nL);
 private:
-	Ui::ViewStudent *ui;
+	Ui::ViewClass *ui;
 
 private slots:
 	void on_exportList_clicked();
