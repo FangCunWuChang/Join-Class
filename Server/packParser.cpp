@@ -1,4 +1,4 @@
-#include "packParser.h"
+#include "PackParser.h"
 
 PackParser::PackParser(QObject* parent) : QObject(parent)
 {

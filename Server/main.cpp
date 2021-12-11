@@ -5,7 +5,7 @@
 #include "CJsonObject/CJsonObject.hpp"
 #include "singleManager.h"
 #include "linkPortServer.h"
-#include "packParser.h"
+#include "PackParser.h"
 #include <QObject>
 #include "users.h"
 
