@@ -10,10 +10,14 @@ ManagerWindow::ManagerWindow(QWidget *parent)
 {
 	ui = new Ui::ManagerWindow();
 	ui->setupUi(this);
+
+	connect(&timer, &QTimer::timeout, this, &ManagerWindow::on_timerTimeOut);
+	timer.start(1000);
 }
 
 ManagerWindow::~ManagerWindow()
 {
+	timer.stop();
 	this->clearClasses();
 	this->clearStudents();
 	this->clearUsers();
@@ -1858,4 +1862,44 @@ void ManagerWindow::parseTask(JC::Task& task)
 		ui->students->setItem(currentIndex, 4, item);//ËùÑ¡¿Î³Ì
 	}
 	ui->students->setSortingEnabled(true);
+}
+
+void ManagerWindow::on_timerTimeOut()
+{
+	this->update();
+}
+
+void ManagerWindow::paintEvent(QPaintEvent* event)
+{
+	QPainter painter(this);
+	QPalette pal = this->palette();
+	QBrush brush = pal.window();
+	QColor col = brush.color();
+	QPen pen;
+	pen.setStyle(Qt::SolidLine);
+	pen.setCapStyle(Qt::RoundCap);
+	pen.setJoinStyle(Qt::RoundJoin);
+	pen.setColor(QColor(col.red() + 2, col.green() + 2, col.blue() + 2));
+	painter.setPen(pen);
+	QFont font;
+	font.setPixelSize(height() / 50);
+	painter.setFont(font);
+	QString times = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+	for (int i = 0; i < 50; i++) {
+		if (i % 2) {
+			painter.drawText(QPointF(0.05 * width(), i * (double)((double)height() / (double)50)), "name:" + this->userName);
+		}
+		else {
+			painter.drawText(QPointF(0.05 * width(), i * (double)((double)height() / (double)50)), "time:" + times);
+		}
+	}
+	for (int i = 0; i < 50; i++) {
+		if (i % 2) {
+			painter.drawText(QPointF(0.55 * width(), i * (double)((double)height() / (double)50)), "name:" + this->userName);
+		}
+		else {
+			painter.drawText(QPointF(0.55 * width(), i * (double)((double)height() / (double)50)), "time:" + times);
+		}
+	}
+	QWidget::paintEvent(event);
 }

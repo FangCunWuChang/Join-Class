@@ -40,7 +40,8 @@ signals:
 	void initConfig(neb::CJsonObject& config);
 	void wannaConfig();
 
-	void initWindow(neb::CJsonObject& config, QString userId, QString userPassword);
+	void initManager(neb::CJsonObject& config, QString userId, QString userPassword);
 	void showManager();
+	void initUser(neb::CJsonObject& config, QString userId, QString userPassword);
 	void showUser();
 };

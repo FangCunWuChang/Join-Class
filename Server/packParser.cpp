@@ -432,6 +432,7 @@ void PackParser::parse(QString peeraddress, const JC::Net::Request& request)
 					answer.set_type(JC::Net::Answer_Type::Answer_Type_DONE);
 					answer.set_mesage("Got student");
 					answer.mutable_student()->CopyFrom(student);
+					answer.mutable_classes()->CopyFrom(Tasks::getClasses());
 				}
 				else {
 					Logger::log(QString::asprintf("Permission denied:%s", qPrintable(QString::fromStdString(request.password()))));

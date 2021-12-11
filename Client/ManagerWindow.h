@@ -23,6 +23,9 @@
 #include <QFileDialog>
 #include <QDir>
 #include <QFileInfo>
+#include <QTimer>
+#include <QDateTime>
+#include <QPainter>
 
 namespace Ui { class ManagerWindow; };
 
@@ -50,8 +53,11 @@ private:
 
 	void parseTask(JC::Task& task);
 
+	QTimer timer = QTimer(this);
+
 protected:
 	void closeEvent(QCloseEvent* event)override;
+	void paintEvent(QPaintEvent* event)override;
 
 public slots:
 	void init(neb::CJsonObject& config, QString userName, QString userPassword);
@@ -95,6 +101,8 @@ private slots:
 	void on_actionLoad_Task_triggered(bool checked);
 
 	void on_tabWidget_currentChanged(int index);
+
+	void on_timerTimeOut();
 
 signals:
 	void initConfig(neb::CJsonObject& config);

@@ -61,8 +61,8 @@ int main(int argc, char *argv[])
         QObject::connect(&login, &Login::initConfig, &setconfig, &SetConfig::init);
         QObject::connect(&login, &Login::wannaConfig, &setconfig, &SetConfig::show);
         QObject::connect(&setconfig, &SetConfig::configData, &login, &Login::init);
-        QObject::connect(&login, &Login::initWindow, &mw, &ManagerWindow::init);
-        QObject::connect(&login, &Login::initWindow, &uw, &UserWindow::init);
+        QObject::connect(&login, &Login::initManager, &mw, &ManagerWindow::init);
+        QObject::connect(&login, &Login::initUser, &uw, &UserWindow::init);
         QObject::connect(&login, &Login::showManager, &mw, &ManagerWindow::show);
         QObject::connect(&login, &Login::showUser, &uw, &UserWindow::show);
         QObject::connect(&mw, &ManagerWindow::initConfig, &setconfig, &SetConfig::init);

@@ -128,12 +128,13 @@ void Login::on_login_clicked()
 			return;
 		}
 	}//保存密码
-
-	emit this->initWindow(this->config, user, password);
+	
 	if (answer.usertype() == JC::User_Type::User_Type_MANAGER) {
+		emit this->initManager(this->config, user, password);
 		emit this->showManager();
 	}
 	else {
+		emit this->initUser(this->config, user, password);
 		emit this->showUser();
 	}//显示对应窗口
 

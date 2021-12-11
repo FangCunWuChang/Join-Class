@@ -62,6 +62,23 @@ JC::Student Tasks::getStudent(QString id)
 	return result;
 }
 
+google::protobuf::RepeatedPtrField<JC::Class> Tasks::getClasses()
+{
+	Tasks::mutex.lock();
+	google::protobuf::RepeatedPtrField<JC::Class> result;
+	JC::Task task;
+	QFile file(QCoreApplication::applicationDirPath() + "/tasks/task.dat");
+	if (file.open(QIODevice::ReadOnly)) {
+		QByteArray data = file.readAll();
+		task.ParseFromArray(data.constData(), data.size());
+		file.close();
+	}
+	Tasks::mutex.unlock();
+
+	result = task.classes();
+	return result;
+}
+
 bool Tasks::setClasses(QString id, QStringList classes)
 {
 	Tasks::mutex.lock();
